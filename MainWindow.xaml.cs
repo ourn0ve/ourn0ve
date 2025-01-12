@@ -20,43 +20,72 @@ namespace ourn0ve
     /// </summary>
     public partial class MainWindow : Window
     {
+        private double _firstNumber = 0;
+        private double _secondNumber = 0;
+        private string _operation = "";
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        // Обработчик для кнопок с цифрами
+        private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
-            double num1 = 10; // Пример числа 1
-            double num2 = 5;  // Пример числа 2
-            double result = num1 + num2;
-            Display.Text = result.ToString();
-        }
-        private void SubtractButton_Click(object sender, RoutedEventArgs e)
-        {
-            double num1 = 10; // Пример числа 1
-            double num2 = 5;  // Пример числа 2
-            double result = num1 - num2;
-            Display.Text = result.ToString();
-        }
-        private void MultiplyButton_Click(object sender, RoutedEventArgs e)
-        {
-            double num1 = 10; // Пример числа 1
-            double num2 = 5;  // Пример числа 2
-            double result = num1 * num2;
-            Display.Text = result.ToString();
-        }
-        private void DivideButton_Click(object sender, RoutedEventArgs e)
-        {
-            double num1 = 10; // Пример числа 1
-            double num2 = 5;  // Пример числа 2
-            if (num2 != 0)
+            var button = sender as Button;
+            if (button != null)
             {
-                double result = num1 / num2;
-                Display.Text = result.ToString();
+                Display.Text += button.Content.ToString();
             }
-            else
+        }
+
+        // Обработчик для кнопок с операциями
+        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
             {
-                Display.Text = "Error: Division by zero";
+                _firstNumber = double.Parse(Display.Text);
+                _operation = button.Content.ToString();
+                Display.Text = "";
+            }
+        }
+
+        // Обработчик для кнопки "C" (очистка)
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            Display.Text = "";
+            _firstNumber = 0;
+            _secondNumber = 0;
+            _operation = "";
+        }
+
+        // Обработчик для кнопки "=" (вычисление)
+        private void EqualsButton_Click(object sender, RoutedEventArgs e)
+        {
+            _secondNumber = double.Parse(Display.Text);
+            double result = 0;
+
+            switch (_operation)
+            {
+                case "+":
+                    result = _firstNumber + _secondNumber;
+                    break;
+                case "-":
+                    result = _firstNumber - _secondNumber;
+                    break;
+                case "*":
+                    result = _firstNumber * _secondNumber;
+                    break;
+                case "/":
+                    if (_secondNumber != 0)
+                        result = _firstNumber / _secondNumber;
+                    else
+                        Display.Text = "Error: Division by zero";
+                    break;
+            }
+
+            if (_operation != "/" || _secondNumber != 0)
+            {
+                Display.Text = result.ToString();
             }
         }
     }

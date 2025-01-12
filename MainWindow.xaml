@@ -7,12 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="Display" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Margin="10" FontSize="24" IsReadOnly="True"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
-            <Button x:Name="AddButton" Content="+" Width="50" Height="50" Margin="5" Click="AddButton_Click"/>
-            <Button x:Name="SubtractButton" Content="-" Width="50" Height="50" Margin="5" Click="SubtractButton_Click"/>
-            <Button x:Name="MultiplyButton" Content="*" Width="50" Height="50" Margin="5" Click="MultiplyButton_Click"/>
-            <Button x:Name="DivideButton" Content="/" Width="50" Height="50" Margin="5" Click="DivideButton_Click"/>
-        </StackPanel>
+        <TextBox x:Name="Display" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Margin="10" FontSize="24" IsReadOnly="True" TextAlignment="Right"/>
+        <UniformGrid Columns="4" Rows="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+            <!-- Цифры и кнопки операций -->
+            <Button x:Name="Button7" Content="7" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="Button8" Content="8" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="Button9" Content="9" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="ButtonDivide" Content="/" Width="50" Height="50" Margin="5" Click="OperationButton_Click"/>
+
+            <Button x:Name="Button4" Content="4" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="Button5" Content="5" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="Button6" Content="6" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="ButtonMultiply" Content="*" Width="50" Height="50" Margin="5" Click="OperationButton_Click"/>
+
+            <Button x:Name="Button1" Content="1" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="Button2" Content="2" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="Button3" Content="3" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="ButtonSubtract" Content="-" Width="50" Height="50" Margin="5" Click="OperationButton_Click"/>
+
+            <Button x:Name="Button0" Content="0" Width="50" Height="50" Margin="5" Click="NumberButton_Click"/>
+            <Button x:Name="ButtonClear" Content="C" Width="50" Height="50" Margin="5" Click="ClearButton_Click"/>
+            <Button x:Name="ButtonEquals" Content="=" Width="50" Height="50" Margin="5" Click="EqualsButton_Click"/>
+            <Button x:Name="ButtonAdd" Content="+" Width="50" Height="50" Margin="5" Click="OperationButton_Click"/>
+        </UniformGrid>
     </Grid>
 </Window>
