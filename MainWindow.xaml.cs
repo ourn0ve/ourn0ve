@@ -38,5 +38,12 @@ namespace ourn0ve
             double result = num1 - num2;
             Display.Text = result.ToString();
         }
+        private void MultiplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            double num1 = 10; // Пример числа 1
+            double num2 = 5;  // Пример числа 2
+            double result = num1 * num2;
+            Display.Text = result.ToString();
+        }
     }
 }
